@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2N18Y2ZxjraioGoMECAwjvZDe2q" />
   <component name="ProjectViewState">
@@ -21,6 +24,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -60,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1678820272809</updated>
       <workItem from="1678820274433" duration="103000" />
+      <workItem from="1678820433076" duration="2608000" />
     </task>
     <servers />
   </component>

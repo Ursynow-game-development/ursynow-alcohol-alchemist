@@ -1,0 +1,15 @@
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\bin\Debug\net7.0\uaa.exe
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\bin\Debug\net7.0\uaa.deps.json
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\bin\Debug\net7.0\uaa.runtimeconfig.json
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\bin\Debug\net7.0\uaa.dll
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\bin\Debug\net7.0\uaa.pdb
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.csproj.AssemblyReference.cache
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.GeneratedMSBuildEditorConfig.editorconfig
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.AssemblyInfoInputs.cache
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.AssemblyInfo.cs
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.csproj.CoreCompileInputs.cache
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.dll
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\refint\uaa.dll
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.pdb
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\uaa.genruntimeconfig.cache
+G:\Repozytoria\uaa\ursynow-alcohol-alchemist\uaa\uaa\obj\Debug\net7.0\ref\uaa.dll
