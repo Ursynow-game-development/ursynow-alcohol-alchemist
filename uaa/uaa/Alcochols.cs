@@ -1,9 +1,9 @@
 ﻿namespace uaa;
 
 public record Alcochols(
-    string name,
-    float requiredZiemniaki,
-    float requiredZboze,
-    float requiredCukier,
+    string Name,
+    float RequiredZiemniaki,
+    float RequiredZboze,
+    float RequiredCukier,
     int Cena
-    );
+);
