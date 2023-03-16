@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-
-namespace uaa
+﻿namespace uaa
 {
     class Program
     {
@@ -13,25 +11,35 @@ namespace uaa
         public static float zboze = 20f;
         public static float ziemniaki = 20f;
 
-       public static IList<Alcochols> alcochols = new Alcochols[]
+       public static IList<Alcohol> alcohols = new[]
         {
-            new Alcochols("mieczak",8f, 2f, 2f, 15),
-            new Alcochols("kopniak",2f, 6f, 4f, 16),
-            new Alcochols("jasne",6f, 3f, 3f, 15),
-            new Alcochols("ciemne",7f, 6f, 7f, 18),
-            new Alcochols("kielich",5f, 5f, 8f, 22),
-            new Alcochols("mocarz",2f, 2f, 11f, 28)
+            new Alcohol("mieczak",8f, 2f, 2f, 15),
+            new Alcohol("kopniak",2f, 6f, 4f, 16),
+            new Alcohol("jasne",6f, 3f, 3f, 15),
+            new Alcohol("ciemne",7f, 6f, 7f, 18),
+            new Alcohol("kielich",5f, 5f, 8f, 22),
+            new Alcohol("mocarz",2f, 2f, 11f, 28)
         };
+       
+       public static IList<Person> person = new []
+       {
+           new Person("seba",0.1f,0.23f),
+           new Person("prof. gucio",0,0.45f),
+           new Person("iwanbillion",0.34f,0),
+           new Person("janusz",0.18f,0.2f),
+           new Person("mieczyslaw",0.03f,0.16f)
+       };
 
-       public static IList<Alcochols> playerAlcohols = new Alcochols[] {};
+       public static List<Alcohol> playerAlcohols = new List<Alcohol>();
         
         static void Main(string[] args)
         {
              OutputMenu();
              OutputTutorial();
-             Thread.Sleep(6000);
+             //Thread.Sleep(6000);
 
              MakingAlcohol();
+             SellingAlcohol();
 
              Console.Read();
         }
@@ -40,7 +48,7 @@ namespace uaa
         {
             Console.WriteLine("####################################");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("URSYNoW ALCOHOL ALCHEMIST SIMULATOR");
+            Console.WriteLine("URSYNOW ALCOHOL ALCHEMIST SIMULATOR");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("          Made by Nefr0l           ");
             Console.WriteLine("####################################");
@@ -71,41 +79,53 @@ namespace uaa
         {
             int selectedAlcohol;
             Console.Clear();
-            Console.WriteLine("===================================");
-            Console.WriteLine("Pedzenie bimbru - pole wyboru (1-7)");
 
             while (true)
             {
+                int alcoholsLength = alcohols.Count;
                 OutputStatus();
-                foreach (Alcochols a in alcochols)
+                Console.WriteLine("[INFO] - Pedzenie bimbru - pole wyboru (1-"+(alcoholsLength+1)+"):");
+                foreach (Alcohol a in alcohols)
                 {
                     Console.WriteLine("* " + a.Name + " (cukier - " + a.RequiredCukier + "; zboze - " + a.RequiredZboze + "; ziemniaki - " + a.RequiredZiemniaki + ")");
                 }
-                Console.WriteLine("* Juz starczy na dzis");
+                Console.WriteLine("* Juz starczy pedzenia na dzis");
 
                 userAnswer = Console.ReadLine();
-                if (userAnswer == "7")
-                {
-                    break;
-                }
+                
+                if (userAnswer == (alcoholsLength+1).ToString()) { break; }
 
-                selectedAlcohol = Convert.ToInt32(userAnswer);
+                selectedAlcohol = Convert.ToInt32(userAnswer) - 1;
                 Console.WriteLine(selectedAlcohol);
-                if (alcochols[selectedAlcohol].RequiredCukier >= cukier &&
-                    alcochols[selectedAlcohol].RequiredZboze >= zboze &&
-                    alcochols[selectedAlcohol].RequiredZiemniaki >= ziemniaki)
+                if (alcohols[selectedAlcohol].RequiredCukier <= cukier &&
+                    alcohols[selectedAlcohol].RequiredZboze <= zboze &&
+                    alcohols[selectedAlcohol].RequiredZiemniaki <= ziemniaki)
                 {
-                    playerAlcohols.Add(alcochols[selectedAlcohol]);
-                    cukier -= alcochols[selectedAlcohol].RequiredCukier;
-                    zboze -= alcochols[selectedAlcohol].RequiredZboze;
-                    ziemniaki -= alcochols[selectedAlcohol].RequiredZiemniaki;
+                    Console.Clear();
+                    playerAlcohols.Add(alcohols[selectedAlcohol]);
+                    
+                    cukier -= alcohols[selectedAlcohol].RequiredCukier;
+                    zboze -= alcohols[selectedAlcohol].RequiredZboze;
+                    ziemniaki -= alcohols[selectedAlcohol].RequiredZiemniaki;
+                    Console.WriteLine("[INFO] - Udalo ci sie wytworzyc wybrany alkohol. Robimy cos jeszcze?");
                 }
                 else
                 {
-                    Console.WriteLine("Nie masz wystarczajaco skladnikow");
+                    Console.Clear();
+                    Console.WriteLine("[INFO] - Nie masz wystarczajaco skladnikow. Chcesz przyrzadzic jakis inny alkohol?");
                 }
-                Console.Clear();
             }
+        }
+
+        public static void SellingAlcohol()
+        {
+            OutputStatus();
+            Console.WriteLine("[INFO] - Przed twoim sklepem pojawila sie gromada ludzi. Komu decydujesz sie sprzedac alkohol? ()");
+            foreach (Person b in person) 
+            {
+                Console.WriteLine("* " + b.Name);
+            }
+            Console.WriteLine("* Juz wystarczy sprzedawania");
         }
     }
 }

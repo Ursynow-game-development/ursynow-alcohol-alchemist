@@ -1,6 +1,6 @@
 ﻿namespace uaa;
 
-public record Alcochols(
+public record Alcohol(
     string Name,
     float RequiredZiemniaki,
     float RequiredZboze,
