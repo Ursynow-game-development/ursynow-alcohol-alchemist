@@ -1,2 +1,2 @@
-# ursynow-alcohol-alchemist
- symulator pedzenia bimbru
+# Ursynów alcochol alchemist simulator
+Ursynów alcochol alchemist simulator to najnowsza premiera w dziedzinie jakości żywności
