@@ -1,4 +1,6 @@
-﻿namespace uaa
+﻿using System.Security.Principal;
+
+namespace uaa
 {
     class Program
     {
@@ -36,7 +38,7 @@
         {
              OutputMenu();
              OutputTutorial();
-             //Thread.Sleep(6000);
+             Thread.Sleep(6000);
 
              MakingAlcohol();
              SellingAlcohol();
@@ -84,7 +86,7 @@
             {
                 int alcoholsLength = alcohols.Count;
                 OutputStatus();
-                Console.WriteLine("[INFO] - Pedzenie bimbru - pole wyboru (1-"+(alcoholsLength+1)+"):");
+                Console.WriteLine("[GRA] - Pedzenie bimbru - pole wyboru (1-"+(alcoholsLength+1)+"):");
                 foreach (Alcohol a in alcohols)
                 {
                     Console.WriteLine("* " + a.Name + " (cukier - " + a.RequiredCukier + "; zboze - " + a.RequiredZboze + "; ziemniaki - " + a.RequiredZiemniaki + ")");
@@ -92,11 +94,9 @@
                 Console.WriteLine("* Juz starczy pedzenia na dzis");
 
                 userAnswer = Console.ReadLine();
-                
                 if (userAnswer == (alcoholsLength+1).ToString()) { break; }
 
                 selectedAlcohol = Convert.ToInt32(userAnswer) - 1;
-                Console.WriteLine(selectedAlcohol);
                 if (alcohols[selectedAlcohol].RequiredCukier <= cukier &&
                     alcohols[selectedAlcohol].RequiredZboze <= zboze &&
                     alcohols[selectedAlcohol].RequiredZiemniaki <= ziemniaki)
@@ -107,25 +107,65 @@
                     cukier -= alcohols[selectedAlcohol].RequiredCukier;
                     zboze -= alcohols[selectedAlcohol].RequiredZboze;
                     ziemniaki -= alcohols[selectedAlcohol].RequiredZiemniaki;
-                    Console.WriteLine("[INFO] - Udalo ci sie wytworzyc wybrany alkohol. Robimy cos jeszcze?");
+                    Console.WriteLine("[GRA] - Udalo ci sie wytworzyc wybrany alkohol. Robimy cos jeszcze?");
                 }
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("[INFO] - Nie masz wystarczajaco skladnikow. Chcesz przyrzadzic jakis inny alkohol?");
+                    Console.WriteLine("[GRA] - Nie masz wystarczajaco skladnikow. Chcesz przyrzadzic jakis inny alkohol?");
                 }
             }
         }
 
         public static void SellingAlcohol()
         {
-            OutputStatus();
-            Console.WriteLine("[INFO] - Przed twoim sklepem pojawila sie gromada ludzi. Komu decydujesz sie sprzedac alkohol? ()");
-            foreach (Person b in person) 
+            int selectedPerson;
+            int selectedAlcoholToPerson;
+            
+            while (true)
             {
-                Console.WriteLine("* " + b.Name);
+                Console.Clear();
+                OutputStatus();
+                Console.WriteLine("[GRA] - Przed twoim sklepem pojawila sie gromada ludzi. Komu decydujesz sie sprzedac alkohol? (1-" + person.Count + ")");
+                foreach (Person b in person)
+                {
+                    Console.WriteLine("* " + b.Name);
+                }
+                Console.WriteLine("* Juz wystarczy sprzedawania");
+
+                userAnswer = Console.ReadLine();
+                if (userAnswer == (person.Count + 1).ToString()) { break; }
+                selectedPerson = Convert.ToInt32(userAnswer) - 1;
+                
+                Console.WriteLine("[GRA] - Jaki bimber chcesz opchnac? (1-" + playerAlcohols.Count + ")");
+                foreach (Alcohol c in playerAlcohols)
+                {
+                    Console.WriteLine("* " + c.Name + ", cena: " + c.Cena);
+                }
+
+                userAnswer = Console.ReadLine();
+                selectedAlcoholToPerson = Convert.ToInt32(userAnswer) - 1;
+                playerAlcohols.Remove(playerAlcohols[selectedAlcoholToPerson]);
+                if (playerAlcohols.Count == 0) { Console.WriteLine("Koniec alkoholi!"); break;}
+
+                bool isPlayerKilled = new Random().Next(100) < person[selectedPerson].killChance * 100 ;
+                if (isPlayerKilled)
+                {
+                    Console.WriteLine("Dajesz do sprobowania bimber temu komus. Na to on ci mowi:");
+                    Thread.Sleep(2500);
+                    Console.WriteLine("Ale slabe zabije cie");
+                    Thread.Sleep(2500);
+                    Console.WriteLine("Giniesz");
+                    Thread.Sleep(2500);
+                    Environment.Exit(0);
+                }
+                
+                bool isPriceDropped = new Random().Next(100) < person[selectedPerson].dropPriceChance * 100 ;
+                if (isPriceDropped)
+                {
+                    // DO DOKOŃCZENIA
+                }
             }
-            Console.WriteLine("* Juz wystarczy sprzedawania");
         }
     }
 }
