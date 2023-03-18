@@ -38,12 +38,13 @@ namespace uaa
         {
              OutputMenu();
              OutputTutorial();
-             Thread.Sleep(6000);
+             Thread.Sleep(5000);
 
              while (true)
              {
                  MakingAlcohol();
                  SellingAlcohol();
+                 Events.RandomEvent();
                  BuyingIngredients();
                  day++;
              }
@@ -74,10 +75,9 @@ namespace uaa
         {
             Console.WriteLine("");
             Console.WriteLine("PORADNIK:");
-            Console.WriteLine("Witaj w symulatorze pedzenia bimbru na ursynowie. Twoim zadanie jest o dziwo pedzenie bimbru");
-            Console.WriteLine("Gra jest podzielona na dni a kazdy z nich na fazy: pedzenie bimbru, sprzedaz, kupno skladnikow.");
-            Console.WriteLine("Bimber potrzebuje skladnikow, kazdy typ bimbru wymaga roznej liczby skladnikow. Podczas twojej rutyny moga dziac sie nieprzemyslane rzeczy");
-            Console.WriteLine("To juz wszystko co potrzebujesz wiedziec. Zaczynamy");
+            Console.WriteLine("Witaj w symulatorze pedzenia bimbru! Kazdy dzien w grze dzieli sie na: pedzenie, sprzedaz, kupno skladnikow.");
+            Console.WriteLine("Kazdy typ bimbru wymaga roznej liczby skladnikow. Podczas twojej rutyny beda sie dziac nieprzemyslane rzeczy");
+            Console.WriteLine("To juz wszystko. Zaczynamy");
         }
 
         public static void MakingAlcohol()
@@ -148,8 +148,6 @@ namespace uaa
 
                 userAnswer = Console.ReadLine();
                 selectedAlcoholToPerson = Convert.ToInt32(userAnswer) - 1;
-                
-                
 
                 bool isPlayerKilled = new Random().Next(100) < person[selectedPerson].killChance * 100 ;
                 if (isPlayerKilled)
