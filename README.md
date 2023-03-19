@@ -4,7 +4,7 @@ Ursynów alcochol alchemist simulator to najnowszy przełom w epoce gamingu. Zaa
 # Instalacja
 Odpalasz .exe z releases. Trzeba mieć .NET czy coś takiego.
 
-# Dlaczego AAS?
+# pobierz teraz
 - Doskonały sposób aby nauczyć się zarobić pierwsze pieniądze
 - Zmierz się z nieoczekiwanymi wydarzeniami podczas twojej rutyny
 - Ćwiczenie relacji międzyludzkich przez dialogi z klientami
