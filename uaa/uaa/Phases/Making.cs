@@ -23,13 +23,14 @@ public class Making
             OutputOptions();
 
             userAnswer = Console.ReadLine();
-            Program.SelectSound();
+            Program.PlayClickSound();
             if (userAnswer == (alcoholsLength+1).ToString()) { break; }
             
             MakeAlcoholIfPossible();
         }
     }
 
+    // Pętle pomocnicze
     public static void OutputOptions()
     {
         foreach (Alcohol a in alcohols)

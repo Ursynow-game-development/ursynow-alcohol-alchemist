@@ -11,7 +11,6 @@ public class Selling
     public static Alcohol selectedAlcoholToPerson;
     
     // Pętla główna
-    
     public static void SellingAlcohol()
     {
         int selectedPerson;
@@ -25,14 +24,14 @@ public class Selling
             OutputPersons();
 
             userAnswer = Console.ReadLine();
-            Program.SelectSound();
+            Program.PlayClickSound();
             if (userAnswer == (person.Count + 1).ToString()) { break; }
             selectedPerson = Convert.ToInt32(userAnswer) - 1;
                 
             Console.WriteLine("[GRA] - Jaki bimber chcesz opchnac? (1-" + playerAlcohols.Count + ")");
             OutputPlayerAlcohols();
             userAnswer = Console.ReadLine();
-            Program.SelectSound();
+            Program.PlayClickSound();
             selectedAlcoholToPerson = playerAlcohols[Convert.ToInt32(userAnswer) - 1];
 
             bool isPlayerKilled = new Random().Next(100) < person[selectedPerson].killChance * 100 ;
@@ -56,6 +55,7 @@ public class Selling
         }
     }
 
+    // Pętle pomocnicze
     public static void OutputPersons()
     {
         foreach (Person b in person)
@@ -92,7 +92,7 @@ public class Selling
         Console.WriteLine("[GRA] - Przystajesz na oferte? (1 - Tak, 2 - Nie)");
 
         userAnswer = Console.ReadLine();
-        Program.SelectSound();
+        Program.PlayClickSound();
         if (userAnswer == "1")
         {
             Console.WriteLine("[GRA] - Zgadzasz sie na sprzedanie i dostajesz " + newPrice + "zl");

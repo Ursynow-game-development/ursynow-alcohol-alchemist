@@ -2,12 +2,14 @@
 
 public class Buying
 {
+    // Importowanie zmiennych
     public static string userAnswer = Program.userAnswer;
     public static float cukier = Program.cukier;
     public static float zboze = Program.zboze;
     public static float ziemniaki = Program.ziemniaki;
     public static int cash = Program.cash;
 
+    // Pętla główna
     public static void BuyingIngredients()
     {
         while (true)
@@ -17,7 +19,7 @@ public class Buying
             OutputOptions();
 
             userAnswer = Console.ReadLine();
-            Program.SelectSound();
+            Program.PlayClickSound();
             if (userAnswer == "4") { break; }
             switch (userAnswer)
             {
@@ -43,6 +45,7 @@ public class Buying
         }
     }
 
+    // Pętle pomocnicze
     public static void OutputOptions()
     {
         Console.WriteLine("█ Ziemniaki (2szt za 1zl)");

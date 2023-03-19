@@ -14,7 +14,7 @@ public class Settings
         Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
 
         userAnswer = Console.ReadLine();
-        Program.SelectSound();
+        Program.PlayClickSound();
         switch (userAnswer)
         {
             case "1": 
@@ -37,7 +37,7 @@ public class Settings
         Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         
         userAnswer = Console.ReadLine();
-        Program.SelectSound();
+        Program.PlayClickSound();
         switch (userAnswer)
         {
             case "1":

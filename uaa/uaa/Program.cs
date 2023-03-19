@@ -4,6 +4,7 @@ namespace uaa
 {
     class Program
     {
+        // Zmienne
         public static string userAnswer;
         public static int cash = 100;
         public static int reputation;
@@ -14,6 +15,7 @@ namespace uaa
         public static List<Alcohol> playerAlcohols = new();
         public static bool soundOn = true;
         
+        // Lista alkoholi
         public static IList<Alcohol> alcohols = new[] {
             new Alcohol("mieczak",8f, 2f, 2f, 20),
             new Alcohol("kopniak",2f, 5f, 4f, 25),
@@ -23,6 +25,7 @@ namespace uaa
             new Alcohol("mocarz",2f, 2f, 11f, 46)
         };
         
+        // Lista osób
         public static IList<Person> person = new [] {
            new Person("seba",0.1f,0.23f),
            new Person("prof. gucio",0,0.45f),
@@ -31,6 +34,7 @@ namespace uaa
            new Person("mieczyslaw",0.03f,0.16f)
         };
 
+        // Pętla główna gry
         static void Main(string[] args)
         {
              OutputLogo();
@@ -46,6 +50,7 @@ namespace uaa
              }
         }
 
+        // Pętle pomocnicze
         public static void OutputLogo()
         {
             Console.WriteLine("██    ██ ██████  ███████ ██    ██ ███    ██  ██████  ██     ██     ███████ ████████ ██    ██ ██████  ██  ██████  ███████ ");
@@ -76,7 +81,7 @@ namespace uaa
             Console.WriteLine("█ Ustawienia");
 
             userAnswer = Console.ReadLine();
-            SelectSound();
+            PlayClickSound();
             switch (userAnswer)
             {
                 case "2": OutputTutorial(); 
@@ -106,16 +111,15 @@ namespace uaa
             Console.WriteLine("Kupowanie skaldnikow - Kupujesz skladniki za zarobione pieniadze");
             Console.WriteLine("+ Pomiedzy tymi fazami moga dziac sie rozne randomowe eventy");
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
-            
             Console.WriteLine("");
             Console.WriteLine("Gdy przeczytasz, nacisnij any key aby powrocic do menu");
             Console.ReadKey();
-            SelectSound();
+            PlayClickSound();
             Console.Clear();
             OutputMenu();
         }
 
-        public static void SelectSound()
+        public static void PlayClickSound()
         {
             if (soundOn)
             {
