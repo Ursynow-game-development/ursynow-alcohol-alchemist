@@ -58,16 +58,16 @@ public class Selling
     {
         foreach (Person b in person)
         {
-            Console.WriteLine("* " + b.Name);
+            Console.WriteLine("█ " + b.Name);
         }
-        Console.WriteLine("* Juz wystarczy sprzedawania");
+        Console.WriteLine("█ Juz wystarczy sprzedawania");
     }
 
     public static void OutputPlayerAlcohols()
     {
         foreach (Alcohol c in playerAlcohols)
         {
-            Console.WriteLine("* " + c.Name + ", cena: " + c.Cena);
+            Console.WriteLine("█ " + c.Name + ", cena: " + c.Cena);
         }
     }
 

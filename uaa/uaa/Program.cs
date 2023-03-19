@@ -8,11 +8,11 @@ namespace uaa
         public static int cash = 100;
         public static int reputation;
         public static int day = 1;
-
         public static float cukier = 20f;
         public static float zboze = 20f;
         public static float ziemniaki = 20f;
         public static List<Alcohol> playerAlcohols = new List<Alcohol>();
+        
         public static IList<Alcohol> alcohols = new[] {
             new Alcohol("mieczak",8f, 2f, 2f, 20),
             new Alcohol("kopniak",2f, 5f, 4f, 25),
@@ -21,6 +21,7 @@ namespace uaa
             new Alcohol("kielich",5f, 5f, 8f, 45),
             new Alcohol("mocarz",2f, 2f, 11f, 46)
         };
+        
         public static IList<Person> person = new [] {
            new Person("seba",0.1f,0.23f),
            new Person("prof. gucio",0,0.45f),
@@ -31,9 +32,8 @@ namespace uaa
 
         static void Main(string[] args)
         {
+             OutputLogo();
              OutputMenu();
-             OutputTutorial();
-             Thread.Sleep(5000);
 
              while (true)
              {
@@ -45,16 +45,40 @@ namespace uaa
              }
         }
 
+        public static void OutputLogo()
+        {
+            Console.WriteLine("██    ██ ██████  ███████ ██    ██ ███    ██  ██████  ██     ██     ███████ ████████ ██    ██ ██████  ██  ██████  ███████ ");
+            Thread.Sleep(200);
+            Console.WriteLine("██    ██ ██   ██ ██       ██  ██  ████   ██ ██    ██ ██     ██     ██         ██    ██    ██ ██   ██ ██ ██    ██ ██      ");
+            Thread.Sleep(200);
+            Console.WriteLine("██    ██ ██████  ███████   ████   ██ ██  ██ ██    ██ ██  █  ██     ███████    ██    ██    ██ ██   ██ ██ ██    ██ ███████ ");
+            Thread.Sleep(200);
+            Console.WriteLine("██    ██ ██   ██      ██    ██    ██  ██ ██ ██    ██ ██ ███ ██          ██    ██    ██    ██ ██   ██ ██ ██    ██      ██ ");
+            Thread.Sleep(200);
+            Console.WriteLine(" ██████  ██   ██ ███████    ██    ██   ████  ██████   ███ ███      ███████    ██     ██████  ██████  ██  ██████  ███████ ");
+            Thread.Sleep(1500);
+            Console.Clear();
+        }
+        
         public static void OutputMenu()
         {
-            Console.WriteLine("####################################");
+            Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("URSYNOW ALCOHOL ALCHEMIST SIMULATOR");
+            Console.WriteLine("░░░░░░░▓ URSYNOW ALCOHOL ALCHEMIST SIMULATOR ▓░░░░░░░");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("          Made by Nefr0l           ");
-            Console.WriteLine("####################################");
-            Console.WriteLine(" Nacisnij any key aby rozpoczac gre ");
-            Console.ReadKey();
+            Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+            Console.WriteLine("");
+            Console.WriteLine("Stworzone przez Nefr0l, wersja alpha");
+            Console.WriteLine("Wybierz opcje (1-2)");
+            Console.WriteLine("█ Graj");
+            Console.WriteLine("█ Tutorial");
+
+            userAnswer = Console.ReadLine();
+            switch (userAnswer)
+            {
+                case "2": OutputTutorial(); 
+                    break;
+            }
         }
 
         public static void OutputStatus()
@@ -68,11 +92,21 @@ namespace uaa
 
         public static void OutputTutorial()
         {
+            Console.Clear();
             Console.WriteLine("");
-            Console.WriteLine("PORADNIK:");
-            Console.WriteLine("Witaj w symulatorze pedzenia bimbru! Kazdy dzien w grze dzieli sie na: pedzenie, sprzedaz, kupno skladnikow.");
-            Console.WriteLine("Kazdy typ bimbru wymaga roznej liczby skladnikow. Podczas twojej rutyny beda sie dziac nieprzemyslane rzeczy");
-            Console.WriteLine("To juz wszystko. Zaczynamy");
+            Console.WriteLine("▓▓▓▓▓▓▓▓▓ PORADNIK ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+            Console.WriteLine("Witaj w symulatorze pedzenia bimbru. Gra sklada sie z dni a kazdy z nich z trzech faz:");
+            Console.WriteLine("Pedzenie bimbru - Wybierasz alkohole jakie chcesz stworzyc, kazdy z nich potrzebuje innej liczby skladnikow");
+            Console.WriteLine("Sprzedaz bimbru - Sprzedajesz roznym osobom alkohole. Kazda z nich ma rozne szanse na zabicie cie lub targowanie sie");
+            Console.WriteLine("Kupowanie skaldnikow - Kupujesz skladniki za zarobione pieniadze");
+            Console.WriteLine("+ Pomiedzy tymi fazami moga dziac sie rozne randomowe eventy");
+            Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+            
+            Console.WriteLine("");
+            Console.WriteLine("Gdy przeczytasz, nacisnij any key aby powrocic do menu");
+            Console.ReadKey();
+            Console.Clear();
+            OutputMenu();
         }
     }
 }

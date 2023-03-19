@@ -44,9 +44,9 @@ public class Buying
 
     public static void OutputOptions()
     {
-        Console.WriteLine("* Ziemniaki (2szt za 1zl)");
-        Console.WriteLine("* Zboze (2szt za 2zl)");
-        Console.WriteLine("* Cukier (2szt za 3zl)");
-        Console.WriteLine("* Juz starczy zakupow");
+        Console.WriteLine("█ Ziemniaki (2szt za 1zl)");
+        Console.WriteLine("█ Zboze (2szt za 2zl)");
+        Console.WriteLine("█ Cukier (2szt za 3zl)");
+        Console.WriteLine("█ Juz starczy zakupow");
     }
 }

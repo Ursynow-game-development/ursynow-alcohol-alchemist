@@ -34,9 +34,9 @@ public class Making
     {
         foreach (Alcohol a in alcohols)
         {
-            Console.WriteLine("* " + a.Name + " (cukier - " + a.RequiredCukier + "; zboze - " + a.RequiredZboze + "; ziemniaki - " + a.RequiredZiemniaki + ")");
+            Console.WriteLine("█ " + a.Name + " (cukier - " + a.RequiredCukier + "; zboze - " + a.RequiredZboze + "; ziemniaki - " + a.RequiredZiemniaki + ")");
         }
-        Console.WriteLine("* Juz starczy pedzenia na dzis");
+        Console.WriteLine("█ Juz starczy pedzenia na dzis");
     }
 
     public static void MakeAlcoholIfPossible ()
