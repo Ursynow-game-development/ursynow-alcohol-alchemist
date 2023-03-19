@@ -13,7 +13,6 @@ public class Making
     // Pętla główna
     public static void MakingAlcohol()
     {
-        Alcohol selectedAlcohol;
         Console.Clear();
 
         while (true)
@@ -24,6 +23,7 @@ public class Making
             OutputOptions();
 
             userAnswer = Console.ReadLine();
+            Program.SelectSound();
             if (userAnswer == (alcoholsLength+1).ToString()) { break; }
             
             MakeAlcoholIfPossible();

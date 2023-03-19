@@ -11,7 +11,8 @@ namespace uaa
         public static float cukier = 20f;
         public static float zboze = 20f;
         public static float ziemniaki = 20f;
-        public static List<Alcohol> playerAlcohols = new List<Alcohol>();
+        public static List<Alcohol> playerAlcohols = new();
+        public static bool soundOn = true;
         
         public static IList<Alcohol> alcohols = new[] {
             new Alcohol("mieczak",8f, 2f, 2f, 20),
@@ -48,15 +49,15 @@ namespace uaa
         public static void OutputLogo()
         {
             Console.WriteLine("██    ██ ██████  ███████ ██    ██ ███    ██  ██████  ██     ██     ███████ ████████ ██    ██ ██████  ██  ██████  ███████ ");
-            Thread.Sleep(200);
+            Thread.Sleep(150);
             Console.WriteLine("██    ██ ██   ██ ██       ██  ██  ████   ██ ██    ██ ██     ██     ██         ██    ██    ██ ██   ██ ██ ██    ██ ██      ");
-            Thread.Sleep(200);
+            Thread.Sleep(150);
             Console.WriteLine("██    ██ ██████  ███████   ████   ██ ██  ██ ██    ██ ██  █  ██     ███████    ██    ██    ██ ██   ██ ██ ██    ██ ███████ ");
-            Thread.Sleep(200);
+            Thread.Sleep(150);
             Console.WriteLine("██    ██ ██   ██      ██    ██    ██  ██ ██ ██    ██ ██ ███ ██          ██    ██    ██    ██ ██   ██ ██ ██    ██      ██ ");
-            Thread.Sleep(200);
+            Thread.Sleep(150);
             Console.WriteLine(" ██████  ██   ██ ███████    ██    ██   ████  ██████   ███ ███      ███████    ██     ██████  ██████  ██  ██████  ███████ ");
-            Thread.Sleep(1500);
+            Thread.Sleep(1000);
             Console.Clear();
         }
         
@@ -69,14 +70,18 @@ namespace uaa
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.WriteLine("");
             Console.WriteLine("Stworzone przez Nefr0l, wersja alpha");
-            Console.WriteLine("Wybierz opcje (1-2)");
+            Console.WriteLine("Wybierz opcje (1-3)");
             Console.WriteLine("█ Graj");
-            Console.WriteLine("█ Tutorial");
+            Console.WriteLine("█ Poradnik");
+            Console.WriteLine("█ Ustawienia");
 
             userAnswer = Console.ReadLine();
+            SelectSound();
             switch (userAnswer)
             {
                 case "2": OutputTutorial(); 
+                    break;
+                case "3": Settings.OutputSettings();
                     break;
             }
         }
@@ -84,10 +89,10 @@ namespace uaa
         public static void OutputStatus()
         {
             Console.WriteLine("");
-            Console.WriteLine("====================================================================================");
+            Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.WriteLine("Dzien " + day + ", Masz " + cash + " kasy oraz " + reputation + " punktow reputacji");
             Console.WriteLine("Stan surowcow: Cukier - " + cukier + ", Zboze - " + zboze + ", Ziemniaki - " + ziemniaki);
-            Console.WriteLine("-------------------------------#===================================================");
+            Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         }
 
         public static void OutputTutorial()
@@ -105,8 +110,17 @@ namespace uaa
             Console.WriteLine("");
             Console.WriteLine("Gdy przeczytasz, nacisnij any key aby powrocic do menu");
             Console.ReadKey();
+            SelectSound();
             Console.Clear();
             OutputMenu();
+        }
+
+        public static void SelectSound()
+        {
+            if (soundOn)
+            {
+                Console.Beep(850, 125);
+            }
         }
     }
 }

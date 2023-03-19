@@ -12,33 +12,34 @@ public class Buying
     {
         while (true)
         {
-            Console.Clear();
             Program.OutputStatus();
             Console.WriteLine("[GRA] - Nadszedl czas na uzupelnienie zapasow. Co kupujesz? (1-4)");
             OutputOptions();
 
             userAnswer = Console.ReadLine();
+            Program.SelectSound();
             if (userAnswer == "4") { break; }
-
-            if (userAnswer == "1")
+            switch (userAnswer)
             {
-                ziemniaki += 2;
-                cash -= 1;
-                Console.WriteLine("[GRA] - Kupiono ziemniaki");
-            } 
-            else if (userAnswer == "2")
-            {
-                zboze += 2;
-                cash -= 2;
-                Console.WriteLine("[GRA] - Kupiono zboze");
-            } 
-            else if (userAnswer == "3")
-            {
-                cukier += 2;
-                cash -= 3;
-                Console.WriteLine("[GRA] - Kupiono cukier");
+                case "1":
+                    ziemniaki += 2;
+                    cash -= 1;
+                    Console.Clear();
+                    Console.WriteLine("[GRA] - Kupiono ziemniaki");
+                    break;
+                case "2":
+                    zboze += 2;
+                    cash -= 2;
+                    Console.Clear();
+                    Console.WriteLine("[GRA] - Kupiono zboze");
+                    break;
+                case "3":
+                    cukier += 2;
+                    cash -= 3;
+                    Console.Clear();
+                    Console.WriteLine("[GRA] - Kupiono cukier");
+                    break;
             }
-            Thread.Sleep(1000);
         }
     }
 

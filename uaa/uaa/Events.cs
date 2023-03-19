@@ -40,6 +40,7 @@ public class Events
 
         Thread.Sleep(1000);
         userAnswer = Console.ReadLine();
+        Program.SelectSound();
         switch (userAnswer)
         {
             case "1":
