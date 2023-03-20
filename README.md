@@ -1,5 +1,5 @@
 # ```Ursynów Alcohol Alchemist Simulator```
-_Wersja alpha_
+_Wersja beta - gra w fazie rozwoju_
 
 Ursynów alcochol alchemist simulator to najnowszy przełom w epoce gamingu. Zaawansowany symulator który nauczy cię zarabiać na swoim pierwszym biznesie już tu jest.
 
