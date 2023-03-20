@@ -1,4 +1,6 @@
 ﻿using uaa.Phases;
+using System.IO;
+using System.Text.Json.Serialization;
 
 namespace uaa
 {
@@ -54,14 +56,15 @@ namespace uaa
         public static void OutputLogo()
         {
             Console.WriteLine("██    ██ ██████  ███████ ██    ██ ███    ██  ██████  ██     ██     ███████ ████████ ██    ██ ██████  ██  ██████  ███████ ");
-            Thread.Sleep(150);
+            Console.Beep(500,100);
             Console.WriteLine("██    ██ ██   ██ ██       ██  ██  ████   ██ ██    ██ ██     ██     ██         ██    ██    ██ ██   ██ ██ ██    ██ ██      ");
-            Thread.Sleep(150);
+            Console.Beep(400,100);
             Console.WriteLine("██    ██ ██████  ███████   ████   ██ ██  ██ ██    ██ ██  █  ██     ███████    ██    ██    ██ ██   ██ ██ ██    ██ ███████ ");
-            Thread.Sleep(150);
+            Console.Beep(300,150);
             Console.WriteLine("██    ██ ██   ██      ██    ██    ██  ██ ██ ██    ██ ██ ███ ██          ██    ██    ██    ██ ██   ██ ██ ██    ██      ██ ");
-            Thread.Sleep(150);
+            Console.Beep(400,250);
             Console.WriteLine(" ██████  ██   ██ ███████    ██    ██   ████  ██████   ███ ███      ███████    ██     ██████  ██████  ██  ██████  ███████ ");
+            Console.Beep(500,500);
             Thread.Sleep(1000);
             Console.Clear();
         }
@@ -123,8 +126,13 @@ namespace uaa
         {
             if (soundOn)
             {
-                Console.Beep(850, 125);
+                Console.Beep(650, 125);
             }
+        }
+
+        public static void WriteData()
+        {
+            
         }
     }
 }
