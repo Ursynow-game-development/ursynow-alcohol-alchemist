@@ -24,13 +24,15 @@ public class Making
 
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
-            if (userAnswer == (alcoholsLength+1).ToString()) { break; }
-            
+            if (userAnswer == (alcoholsLength + 1).ToString())
+            {
+                break;
+            }
             MakeAlcoholIfPossible();
         }
     }
 
-    // Pętle pomocnicze
+    // Wyświetla dostępne opcje pędzenia bimbru
     public static void OutputOptions()
     {
         foreach (Alcohol a in alcohols)
@@ -40,6 +42,7 @@ public class Making
         Console.WriteLine("█ Juz starczy pedzenia na dzis");
     }
 
+    // Sprawdza czy masz składniki po czym tworzy alkohol
     public static void MakeAlcoholIfPossible ()
     {
         Alcohol selectedAlcohol = alcohols[Convert.ToInt32(userAnswer) - 1];

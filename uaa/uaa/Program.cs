@@ -52,7 +52,7 @@ namespace uaa
              }
         }
 
-        // Pętle pomocnicze
+        // Wyświetla logo Ursynów Studios
         public static void OutputLogo()
         {
             Console.WriteLine("██    ██ ██████  ███████ ██    ██ ███    ██  ██████  ██     ██     ███████ ████████ ██    ██ ██████  ██  ██████  ███████ ");
@@ -69,6 +69,7 @@ namespace uaa
             Console.Clear();
         }
         
+        // Wyświetla menu główne
         public static void OutputMenu()
         {
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
@@ -94,6 +95,7 @@ namespace uaa
             }
         }
 
+        // Wyświetla status gracza
         public static void OutputStatus()
         {
             Console.WriteLine("");
@@ -103,6 +105,7 @@ namespace uaa
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         }
 
+        // Wyświetla poradnik
         public static void OutputTutorial()
         {
             Console.Clear();
@@ -122,17 +125,13 @@ namespace uaa
             OutputMenu();
         }
 
+        // Gra dźwięk UI
         public static void PlayClickSound()
         {
             if (soundOn)
             {
                 Console.Beep(650, 125);
             }
-        }
-
-        public static void WriteData()
-        {
-            
         }
     }
 }

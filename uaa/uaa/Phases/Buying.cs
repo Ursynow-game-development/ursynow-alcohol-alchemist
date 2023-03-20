@@ -2,7 +2,7 @@
 
 public class Buying
 {
-    // Importowanie zmiennych
+    // Import zmiennych
     public static string userAnswer = Program.userAnswer;
     public static float cukier = Program.cukier;
     public static float zboze = Program.zboze;
@@ -45,7 +45,7 @@ public class Buying
         }
     }
 
-    // Pętle pomocnicze
+    // Wyświetla dostępne opcje składników do kupienia
     public static void OutputOptions()
     {
         Console.WriteLine("█ Ziemniaki (2szt za 1zl)");

@@ -4,6 +4,7 @@ public class Settings
 {
     public static string userAnswer = Program.userAnswer;
     
+    // Wyświetla ustawienia
     public static void OutputSettings()
     {
         Console.Clear();
@@ -27,6 +28,7 @@ public class Settings
         }
     }
 
+    // Ustawienia - dźwięk
     public static void ChangeAudioSettings()
     {
         Console.Clear();

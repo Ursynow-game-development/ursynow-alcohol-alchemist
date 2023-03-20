@@ -20,26 +20,34 @@ public class Selling
         {
             Console.Clear();
             Program.OutputStatus();
+            
+            // Wybór osoby do sprzedania alkoholu
             Console.WriteLine("[GRA] - Przed twoim sklepem pojawila sie gromada ludzi. Komu decydujesz sie sprzedac alkohol? (1-" + person.Count + ")");
             OutputPersons();
-
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
-            if (userAnswer == (person.Count + 1).ToString()) { break; }
+
+            if (userAnswer == (person.Count + 1).ToString())
+            {
+                break;
+            }
             selectedPerson = Convert.ToInt32(userAnswer) - 1;
                 
+            // Wybór alkoholu do sprzedania
             Console.WriteLine("[GRA] - Jaki bimber chcesz opchnac? (1-" + playerAlcohols.Count + ")");
             OutputPlayerAlcohols();
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
             selectedAlcoholToPerson = playerAlcohols[Convert.ToInt32(userAnswer) - 1];
 
+            // Losowanie czy osoba zabije gracza
             bool isPlayerKilled = new Random().Next(100) < person[selectedPerson].killChance * 100 ;
             if (isPlayerKilled)
             {
                 KillPlayer();
             }
                 
+            // Losowanie czy osoba będzie się targować
             bool isPriceDropped = new Random().Next(100) < person[selectedPerson].dropPriceChance * 100 ;
             if (isPriceDropped)
             {
@@ -50,12 +58,16 @@ public class Selling
                 SellAlcoholAtFullPrice();
             }
                 
+            // Usuwanie alkoholu z listy alkoholi gracza
             playerAlcohols.Remove(selectedAlcoholToPerson);
-            if (playerAlcohols.Count == 0) { break; }
+            if (playerAlcohols.Count == 0)
+            {
+                break;
+            }
         }
     }
 
-    // Pętle pomocnicze
+    // Wyświetla dostępne osoby którym możesz sprzedać alkohol
     public static void OutputPersons()
     {
         foreach (Person b in person)
@@ -65,6 +77,7 @@ public class Selling
         Console.WriteLine("█ Juz wystarczy sprzedawania");
     }
 
+    // Wyświetla dostępne alkohole po wyvbraniu osoby
     public static void OutputPlayerAlcohols()
     {
         foreach (Alcohol c in playerAlcohols)
@@ -73,6 +86,7 @@ public class Selling
         }
     }
 
+    // Osoba zabija gracza
     public static void KillPlayer()
     {
         Console.WriteLine("Dajesz do sprobowania bimber temu komus. Na to on ci mowi:");
@@ -84,6 +98,7 @@ public class Selling
         Environment.Exit(0);
     }
 
+    // Osoba targuje się
     public static void DropPrice()
     {
         int priceDrop = new Random().Next(10);
@@ -105,6 +120,7 @@ public class Selling
         }
     }
 
+    // Osoba nic nie robi - sprzedajesz bez problemów
     public static void SellAlcoholAtFullPrice()
     {
         Console.WriteLine("[GRA] - Klient jest zachwycony twoim bimbrem, dostajesz " + selectedAlcoholToPerson.Cena + "zl");

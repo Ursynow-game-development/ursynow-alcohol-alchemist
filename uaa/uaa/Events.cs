@@ -4,6 +4,7 @@ public class Events
 {
     public static string userAnswer = Program.userAnswer;
     
+    // Losowanie niespodziewanego wydarzenia
     public static void RandomEvent()
     {
         Console.Clear();
@@ -27,6 +28,7 @@ public class Events
         Console.Clear();
     }
 
+    // Event 1 - złodziej
     public static void Event_Thief()
     {
         string randomPersonName = Program.person[new Random().Next(Program.person.Count)].Name;
@@ -67,6 +69,7 @@ public class Events
         }
     }
 
+    // Event 2 - Ziemniaki
     public static void Event_Potatoes()
     {
         Console.WriteLine("Znalazles na ulicy 4 ziemniaki");
@@ -75,6 +78,7 @@ public class Events
         Console.WriteLine("Jestes farciarzem gratuluje");
     }
 
+    // Event 3 - Elon musk
     public static void Event_ElonMusk()
     {
         Console.WriteLine("[Elon Musk] - witam chcialbym abys nauczyl mnie jak robic bimber z ktorego bede mogl zrobic paliwo rakietowe");
