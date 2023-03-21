@@ -4,11 +4,6 @@ public class Making
 {
     // Import zmiennych
     public static string userAnswer = Program.userAnswer;
-    public static float cukier = Program.cukier;
-    public static float zboze = Program.zboze;
-    public static float ziemniaki = Program.ziemniaki;
-    public static IList<Alcohol> alcohols = Program.alcohols;
-    public static List<Alcohol> playerAlcohols = Program.playerAlcohols;
 
     // Pętla główna
     public static void MakingAlcohol()
@@ -17,7 +12,7 @@ public class Making
 
         while (true)
         {
-            int alcoholsLength = alcohols.Count;
+            int alcoholsLength = Program.alcohols.Count;
             Program.OutputStatus();
             Console.WriteLine("[GRA] - Pedzenie bimbru - pole wyboru (1-"+(alcoholsLength+1)+"):");
             OutputOptions();
@@ -35,7 +30,7 @@ public class Making
     // Wyświetla dostępne opcje pędzenia bimbru
     public static void OutputOptions()
     {
-        foreach (Alcohol a in alcohols)
+        foreach (Alcohol a in Program.alcohols)
         {
             Console.WriteLine("█ " + a.Name + " (cukier - " + a.RequiredCukier + "; zboze - " + a.RequiredZboze + "; ziemniaki - " + a.RequiredZiemniaki + ")");
         }
@@ -45,14 +40,14 @@ public class Making
     // Sprawdza czy masz składniki po czym tworzy alkohol
     public static void MakeAlcoholIfPossible ()
     {
-        Alcohol selectedAlcohol = alcohols[Convert.ToInt32(userAnswer) - 1];
-        if (selectedAlcohol.RequiredCukier <= cukier && selectedAlcohol.RequiredZboze <= zboze && selectedAlcohol.RequiredZiemniaki <= ziemniaki) 
+        Alcohol selectedAlcohol = Program.alcohols[Convert.ToInt32(userAnswer) - 1];
+        if (selectedAlcohol.RequiredCukier <= Program.cukier && selectedAlcohol.RequiredZboze <= Program.zboze && selectedAlcohol.RequiredZiemniaki <= Program.ziemniaki) 
         {
             Console.Clear();
-            playerAlcohols.Add(selectedAlcohol);   
-            cukier -= selectedAlcohol.RequiredCukier;
-            zboze -= selectedAlcohol.RequiredZboze;
-            ziemniaki -= selectedAlcohol.RequiredZiemniaki;
+            Program.playerAlcohols.Add(selectedAlcohol);   
+            Program.cukier -= selectedAlcohol.RequiredCukier;
+            Program.zboze -= selectedAlcohol.RequiredZboze;
+            Program.ziemniaki -= selectedAlcohol.RequiredZiemniaki;
             Console.WriteLine("[GRA] - Udalo ci sie wytworzyc wybrany alkohol. Robimy cos jeszcze?");
         } 
         else 

@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JSON File" />
+        <option value="XML File" />
       </list>
     </option>
   </component>
@@ -79,6 +80,7 @@
       <workItem from="1679219913175" duration="5267000" />
       <workItem from="1679240837377" duration="3294000" />
       <workItem from="1679334098149" duration="4692000" />
+      <workItem from="1679387702944" duration="3732000" />
     </task>
     <servers />
   </component>

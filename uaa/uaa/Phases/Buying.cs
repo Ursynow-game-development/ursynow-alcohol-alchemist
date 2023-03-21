@@ -4,10 +4,6 @@ public class Buying
 {
     // Import zmiennych
     public static string userAnswer = Program.userAnswer;
-    public static float cukier = Program.cukier;
-    public static float zboze = Program.zboze;
-    public static float ziemniaki = Program.ziemniaki;
-    public static int cash = Program.cash;
 
     // Pętla główna
     public static void BuyingIngredients()
@@ -24,20 +20,20 @@ public class Buying
             switch (userAnswer)
             {
                 case "1":
-                    ziemniaki += 2;
-                    cash -= 1;
+                    Program.ziemniaki += 2;
+                    Program.cash -= 1;
                     Console.Clear();
                     Console.WriteLine("[GRA] - Kupiono ziemniaki");
                     break;
                 case "2":
-                    zboze += 2;
-                    cash -= 2;
+                    Program.zboze += 2;
+                    Program.cash -= 2;
                     Console.Clear();
                     Console.WriteLine("[GRA] - Kupiono zboze");
                     break;
                 case "3":
-                    cukier += 2;
-                    cash -= 3;
+                    Program.cukier += 2;
+                    Program.cash -= 3;
                     Console.Clear();
                     Console.WriteLine("[GRA] - Kupiono cukier");
                     break;

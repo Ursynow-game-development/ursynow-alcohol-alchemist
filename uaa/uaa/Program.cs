@@ -1,6 +1,4 @@
 ﻿using uaa.Phases;
-using System.IO;
-using System.Text.Json.Serialization;
 
 namespace uaa
 {
@@ -39,17 +37,19 @@ namespace uaa
         // Pętla główna gry
         static void Main(string[] args)
         {
-             OutputLogo();
-             OutputMenu();
+            //ReadData();
+            OutputLogo();
+            OutputMenu();
 
-             while (true)
-             {
-                 Making.MakingAlcohol();
-                 Selling.SellingAlcohol();
-                 Events.RandomEvent();
-                 Buying.BuyingIngredients();
-                 day++;
-             }
+            while (true)
+            {
+                Making.MakingAlcohol();
+                Selling.SellingAlcohol();
+                Events.RandomEvent();
+                Buying.BuyingIngredients();
+                //WriteData();
+                day++;
+            }
         }
 
         // Wyświetla logo Ursynów Studios
@@ -78,7 +78,7 @@ namespace uaa
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.WriteLine("");
-            Console.WriteLine("Stworzone przez Nefr0l, wersja alpha");
+            Console.WriteLine("Stworzone przez Nefr0l, wersja beta");
             Console.WriteLine("Wybierz opcje (1-3)");
             Console.WriteLine("█ Graj");
             Console.WriteLine("█ Poradnik");
@@ -131,6 +131,34 @@ namespace uaa
             if (soundOn)
             {
                 Console.Beep(650, 125);
+            }
+        }
+
+        // Zapisuje dane - nie działa
+        public static void WriteData()
+        {
+            Console.Clear();
+            Console.WriteLine("[GRA] - Trwa zapisywanie danych");
+            string filename = "data.txt";
+            using (StreamWriter writer = new StreamWriter(filename))
+            {
+                writer.WriteLine(cash);
+            }
+            Thread.Sleep(1000);
+            Console.WriteLine("[GRA] - Gotowe");
+            Thread.Sleep(1000);
+        }
+
+        // Pobiera dane - nie działa
+        public static void ReadData()
+        {
+            string filename = "data.txt";
+            if (File.Exists(filename) && new FileInfo(filename).Length > 0)
+            {
+                using (StreamReader reader = new StreamReader(filename))
+                {
+                    cash = int.Parse(reader.ReadLine());
+                }
             }
         }
     }

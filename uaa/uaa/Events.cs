@@ -22,8 +22,7 @@ public class Events
             case 2:
                 Event_ElonMusk();
                 break;
-        }
-        
+        } 
         Thread.Sleep(3000);
         Console.Clear();
     }

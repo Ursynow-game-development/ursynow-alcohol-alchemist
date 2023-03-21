@@ -4,10 +4,6 @@ public class Selling
 {
     // Import zmiennych
     public static string userAnswer = Program.userAnswer;
-    public static int cash = Program.cash;
-    public static int reputation = Program.reputation;
-    public static IList<Alcohol> playerAlcohols = Program.playerAlcohols;
-    public static IList<Person> person = Program.person;
     public static Alcohol selectedAlcoholToPerson;
     
     // Pętla główna
@@ -22,33 +18,33 @@ public class Selling
             Program.OutputStatus();
             
             // Wybór osoby do sprzedania alkoholu
-            Console.WriteLine("[GRA] - Przed twoim sklepem pojawila sie gromada ludzi. Komu decydujesz sie sprzedac alkohol? (1-" + person.Count + ")");
+            Console.WriteLine("[GRA] - Przed twoim sklepem pojawila sie gromada ludzi. Komu decydujesz sie sprzedac alkohol? (1-" + Program.person.Count + ")");
             OutputPersons();
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
 
-            if (userAnswer == (person.Count + 1).ToString())
+            if (userAnswer == (Program.person.Count + 1).ToString())
             {
                 break;
             }
             selectedPerson = Convert.ToInt32(userAnswer) - 1;
                 
             // Wybór alkoholu do sprzedania
-            Console.WriteLine("[GRA] - Jaki bimber chcesz opchnac? (1-" + playerAlcohols.Count + ")");
+            Console.WriteLine("[GRA] - Jaki bimber chcesz opchnac? (1-" + Program.playerAlcohols.Count + ")");
             OutputPlayerAlcohols();
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
-            selectedAlcoholToPerson = playerAlcohols[Convert.ToInt32(userAnswer) - 1];
+            selectedAlcoholToPerson = Program.playerAlcohols[Convert.ToInt32(userAnswer) - 1];
 
             // Losowanie czy osoba zabije gracza
-            bool isPlayerKilled = new Random().Next(100) < person[selectedPerson].killChance * 100 ;
+            bool isPlayerKilled = new Random().Next(100) < Program.person[selectedPerson].killChance * 100 ;
             if (isPlayerKilled)
             {
                 KillPlayer();
             }
                 
             // Losowanie czy osoba będzie się targować
-            bool isPriceDropped = new Random().Next(100) < person[selectedPerson].dropPriceChance * 100 ;
+            bool isPriceDropped = new Random().Next(100) < Program.person[selectedPerson].dropPriceChance * 100 ;
             if (isPriceDropped)
             {
                 DropPrice();
@@ -59,8 +55,8 @@ public class Selling
             }
                 
             // Usuwanie alkoholu z listy alkoholi gracza
-            playerAlcohols.Remove(selectedAlcoholToPerson);
-            if (playerAlcohols.Count == 0)
+            Program.playerAlcohols.Remove(selectedAlcoholToPerson);
+            if (Program.playerAlcohols.Count == 0)
             {
                 break;
             }
@@ -70,7 +66,7 @@ public class Selling
     // Wyświetla dostępne osoby którym możesz sprzedać alkohol
     public static void OutputPersons()
     {
-        foreach (Person b in person)
+        foreach (Person b in Program.person)
         {
             Console.WriteLine("█ " + b.Name);
         }
@@ -80,7 +76,7 @@ public class Selling
     // Wyświetla dostępne alkohole po wyvbraniu osoby
     public static void OutputPlayerAlcohols()
     {
-        foreach (Alcohol c in playerAlcohols)
+        foreach (Alcohol c in Program.playerAlcohols)
         {
             Console.WriteLine("█ " + c.Name + ", cena: " + c.Cena);
         }
@@ -111,8 +107,8 @@ public class Selling
         if (userAnswer == "1")
         {
             Console.WriteLine("[GRA] - Zgadzasz sie na sprzedanie i dostajesz " + newPrice + "zl");
-            cash += newPrice;
-            reputation += 10;
+            Program.cash += newPrice;
+            Program.reputation += 10;
         }
         else
         {
@@ -124,7 +120,7 @@ public class Selling
     public static void SellAlcoholAtFullPrice()
     {
         Console.WriteLine("[GRA] - Klient jest zachwycony twoim bimbrem, dostajesz " + selectedAlcoholToPerson.Cena + "zl");
-        cash += selectedAlcoholToPerson.Cena;
-        reputation += 20;
+        Program.cash += selectedAlcoholToPerson.Cena;
+        Program.reputation += 20;
     }
 }
