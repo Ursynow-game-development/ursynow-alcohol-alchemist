@@ -1,15 +1,17 @@
-# ```Ursynów Alcohol Alchemist Simulator```
-_Wersja beta - gra w fazie rozwoju_
+# Ursynów Alcohol Alchemist Simulator
+_Wersja beta v2_
 
-Ursynów alcochol alchemist simulator to najnowszy przełom w epoce gamingu. Zaawansowany symulator który nauczy cię zarabiać na swoim pierwszym biznesie już tu jest.
+Symulator pędzenia bimbru na Ursynowie to najnowszy przełom w dziedzinie gamingu. Stwórz swój własny biznes i sprzedawaj alkohole gdzie popadnie. Spotkaj wielu ludzi i spróbuj nie umrzeć. Nie ma na co czekać, pobierz teraz.
 
-## Instalacja
-Odpalasz .exe z releases. Trzeba mieć .NET czy coś takiego.
-
-## pobierz teraz
-- Doskonały sposób aby nauczyć się zarobić pierwsze pieniądze
-- Zmierz się z nieoczekiwanymi wydarzeniami podczas twojej rutyny
-- Ćwiczenie relacji międzyludzkich przez dialogi z klientami
+## Wymagania
+- 2tb pamięci ram
+- 150gb miejsca na dysku
+- Karta graficzna rtx 4090
+- Ukończone kursy Harvardu o zarządzaniu biznesem
+- .NET
+- Jakiś windows
 
 ## Recenzje
 > *dzieki tej grze jestem bogaty bo nauczylem sie sprzedawac bimber* ~ elon musk
+
+> ~~*dzieki tej grze znalazlem dziewczyne* ~ fetysz~~
