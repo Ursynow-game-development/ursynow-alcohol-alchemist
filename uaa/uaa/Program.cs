@@ -1,4 +1,5 @@
-﻿using uaa.Phases;
+﻿using System.Runtime.CompilerServices;
+using uaa.Phases;
 
 namespace uaa
 {
@@ -14,6 +15,7 @@ namespace uaa
         public static float ziemniaki = 20f;
         public static List<Alcohol> playerAlcohols = new();
         public static bool soundOn = true;
+        public static int playerAlcoholsNumber;
         
         // Lista alkoholi
         public static IList<Alcohol> alcohols = new[] {
@@ -37,7 +39,7 @@ namespace uaa
         // Pętla główna gry
         static void Main(string[] args)
         {
-            //ReadData();
+            ReadData();
             OutputLogo();
             OutputMenu();
 
@@ -47,7 +49,7 @@ namespace uaa
                 Selling.SellingAlcohol();
                 Events.RandomEvent();
                 Buying.BuyingIngredients();
-                //WriteData();
+                WriteData();
                 day++;
             }
         }
@@ -100,8 +102,8 @@ namespace uaa
         {
             Console.WriteLine("");
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
-            Console.WriteLine("Dzien " + day + ", Masz " + cash + " kasy oraz " + reputation + " punktow reputacji");
-            Console.WriteLine("Stan surowcow: Cukier - " + cukier + ", Zboze - " + zboze + ", Ziemniaki - " + ziemniaki);
+            Console.WriteLine("Dzien " + day + ", masz " + cash + "zl oraz " + reputation + " punktow reputacji");
+            Console.WriteLine("Stan surowcow: Cukier = " + cukier + ", Zboze = " + zboze + ", Ziemniaki = " + ziemniaki);
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         }
 
@@ -134,7 +136,7 @@ namespace uaa
             }
         }
 
-        // Zapisuje dane - nie działa
+        // Zapisuje dane
         public static void WriteData()
         {
             Console.Clear();
@@ -143,21 +145,58 @@ namespace uaa
             using (StreamWriter writer = new StreamWriter(filename))
             {
                 writer.WriteLine(cash);
+                writer.WriteLine(soundOn);
+                writer.WriteLine(reputation);
+                writer.WriteLine(ziemniaki);
+                writer.WriteLine(zboze);
+                writer.WriteLine(cukier);
+                writer.WriteLine(playerAlcohols.Count);
+                for (int i = 0; i < playerAlcohols.Count; i++)
+                {
+                    writer.WriteLine(playerAlcohols[i].Name);
+                    writer.WriteLine(playerAlcohols[i].RequiredZiemniaki);
+                    writer.WriteLine(playerAlcohols[i].RequiredZboze);
+                    writer.WriteLine(playerAlcohols[i].RequiredCukier);
+                    writer.WriteLine(playerAlcohols[i].Cena);
+                }
             }
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.WriteLine("[GRA] - Gotowe");
-            Thread.Sleep(1000);
+            Thread.Sleep(800);
         }
 
-        // Pobiera dane - nie działa
+        // Pobiera dane - pobieranie alkoholi gracza do naprawy
         public static void ReadData()
         {
-            string filename = "data.txt";
-            if (File.Exists(filename) && new FileInfo(filename).Length > 0)
+            long length = new FileInfo("data.txt").Length;
+            using (StreamReader reader = new StreamReader("data.txt"))
             {
-                using (StreamReader reader = new StreamReader(filename))
+                for (int i = 0; i < length; i++)
                 {
-                    cash = int.Parse(reader.ReadLine());
+                    string line = reader.ReadLine();
+                    if (i == 0 && line != null) { cash = int.Parse(line); }
+                    if (i == 1 && line != null) { soundOn = Boolean.Parse(line); }
+                    if (i == 2 && line != null) { reputation = int.Parse(line); }
+                    if (i == 3 && line != null) { ziemniaki = int.Parse(line); }
+                    if (i == 4 && line != null) { zboze = int.Parse(line); }
+                    if (i == 5 && line != null) { cukier = int.Parse(line); }
+
+                    if (i == 6 && line != null)
+                    {
+                        playerAlcoholsNumber = int.Parse(line);
+                        for (int j = 0; j < playerAlcoholsNumber; j++)
+                        {
+                            string aName = reader.ReadLine();
+                            Console.WriteLine(aName);
+                            float aZiemniaki = int.Parse(reader.ReadLine());
+                            float aZboze = int.Parse(reader.ReadLine());
+                            float aCukier = int.Parse(reader.ReadLine());
+                            int aCash = int.Parse(reader.ReadLine());
+                            playerAlcohols.Add(new Alcohol(
+                                aName, aZiemniaki, aZboze, aCukier, aCash
+                            ));
+                        }
+                    }
                 }
             }
         }

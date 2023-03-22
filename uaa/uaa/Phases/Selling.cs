@@ -73,7 +73,7 @@ public class Selling
         Console.WriteLine("█ Juz wystarczy sprzedawania");
     }
 
-    // Wyświetla dostępne alkohole po wyvbraniu osoby
+    // Wyświetla dostępne alkohole po wybraniu osoby
     public static void OutputPlayerAlcohols()
     {
         foreach (Alcohol c in Program.playerAlcohols)
