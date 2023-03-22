@@ -9,7 +9,7 @@ public class Settings
     {
         Console.Clear();
         Console.WriteLine("");
-        Console.WriteLine("▓▓▓ USTAWIENIA - Wybierz opcje (1-2) ▓▓▓");
+        Console.WriteLine("▓▓▓ USTAWIENIA - Wybierz opcje (1-3) ▓▓▓");
         Console.WriteLine("█ Dzwiek");
         Console.WriteLine("█ Dane");
         Console.WriteLine("█ Powrot");

@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using uaa.Phases;
+﻿using uaa.Phases;
 
 namespace uaa
 {
@@ -7,24 +6,24 @@ namespace uaa
     {
         // Zmienne
         public static string userAnswer;
-        public static int cash = 100;
+        public static int cash = 25;
         public static int reputation;
         public static int day = 1;
-        public static float cukier = 20f;
-        public static float zboze = 20f;
-        public static float ziemniaki = 20f;
+        public static float cukier = 10f;
+        public static float zboze = 10f;
+        public static float ziemniaki = 10f;
         public static List<Alcohol> playerAlcohols = new();
         public static bool soundOn = true;
         public static int playerAlcoholsNumber;
         
         // Lista alkoholi
         public static IList<Alcohol> alcohols = new[] {
-            new Alcohol("mieczak",8f, 2f, 2f, 20),
-            new Alcohol("kopniak",2f, 5f, 4f, 25),
+            new Alcohol("mieczak",8f, 2f, 2f, 21),
+            new Alcohol("kopniak",2f, 5f, 4f, 27),
             new Alcohol("jasne",6f, 3f, 3f, 25),
             new Alcohol("ciemne",7f, 6f, 7f, 50),
-            new Alcohol("kielich",5f, 5f, 8f, 45),
-            new Alcohol("mocarz",2f, 2f, 11f, 46)
+            new Alcohol("kielich",5f, 5f, 8f, 48),
+            new Alcohol("mocarz",2f, 2f, 11f, 38)
         };
         
         // Lista osób
@@ -37,7 +36,7 @@ namespace uaa
         };
 
         // Pętla główna gry
-        static void Main(string[] args)
+        static void Main()
         {
             ReadData();
             OutputLogo();
@@ -165,7 +164,7 @@ namespace uaa
             Thread.Sleep(800);
         }
 
-        // Pobiera dane - pobieranie alkoholi gracza do naprawy
+        // Pobiera dane
         public static void ReadData()
         {
             long length = new FileInfo("data.txt").Length;
@@ -180,7 +179,6 @@ namespace uaa
                     if (i == 3 && line != null) { ziemniaki = int.Parse(line); }
                     if (i == 4 && line != null) { zboze = int.Parse(line); }
                     if (i == 5 && line != null) { cukier = int.Parse(line); }
-
                     if (i == 6 && line != null)
                     {
                         playerAlcoholsNumber = int.Parse(line);

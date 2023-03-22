@@ -10,7 +10,7 @@ public class Events
         Console.Clear();
         Console.WriteLine("[GRA] - Nastapilo nieoczekiwane wydarzenie");
         Thread.Sleep(2000);
-        int randomEventIndex = new Random().Next(3);
+        int randomEventIndex = new Random().Next(4);
         switch (randomEventIndex)
         {
             case 0:
@@ -21,6 +21,9 @@ public class Events
                 break;
             case 2:
                 Event_ElonMusk();
+                break;
+            case 3:
+                Event_Bombilion();
                 break;
         } 
         Thread.Sleep(3000);
@@ -91,14 +94,64 @@ public class Events
         switch (userAnswer)
         {
             case "1":
-                Console.WriteLine("[GRA] - Zapoznajesz elona muska z tajnikami pedzenia bimbru. Otrzymujesz 40 kasy ale tracisz 15 respektu poniewaz zdradziles tajemny przepis");
+                Console.WriteLine("[GRA] - Zapoznajesz elona muska z tajnikami pedzenia bimbru. Otrzymujesz 30 kasy ale tracisz 10 respektu poniewaz zdradziles tajemny przepis");
                 Thread.Sleep(4000);
-                Program.reputation -= 15;
-                Program.cash += 40;
+                Program.reputation -= 10;
+                Program.cash += 30;
                 break;
             case "2":
                 Console.WriteLine("[GRA] - Mowisz elonowi aby poszedl dzieciom gadac te bajeczki o kosmosie");
                 Thread.Sleep(2000);
+                break;
+        }
+    }
+    
+    //Event 4 - Bombiliony
+    public static void Event_Bombilion()
+    {
+        Console.WriteLine("[GRA] - Nad twoim stoiskiem przelatuje bombilion wyslany przez zadymiarzy z wrzeciona. Co robisz? (1-3)");
+        Console.WriteLine("█ Zestrzeliwuje go uzywajac wyrzutni kalafiorow");
+        Console.WriteLine("█ Chowam sie do bunkra");
+        Console.WriteLine("█ Mam go gdzies");
+        
+        userAnswer = Console.ReadLine();
+        Program.PlayClickSound();
+        switch (userAnswer)
+        {
+            case "1":
+                Console.Clear();
+                int position = new Random().Next(1000, 2000);
+                string positionBinary = Convert.ToString(position, 2);
+                Console.WriteLine(positionBinary);
+                Console.WriteLine("=== WYRZUTNIA KALAFIOROW ROCKET SYSTEM ===");
+                Console.WriteLine("Pozycja bombiliona na radarze: " + positionBinary);
+                Console.WriteLine("Aby wprowadzic pozycje do strzalu wprowadz liczbe w systemie dziesietnym:");
+                userAnswer = Console.ReadLine();
+                Program.PlayClickSound();
+
+                if (userAnswer == position.ToString())
+                {
+                    Console.WriteLine("Bombilion zostal zestrzelony");
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    Console.WriteLine("Wpisales zla pozycje, bombilion cie zestrzelil");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Umierasz");
+                    Thread.Sleep(1000);
+                    Environment.Exit(0);
+                }
+                break;
+            case "2":
+                Console.WriteLine("[GRA] - Chowajac sie do bunkra ratujesz swoje zycie ale tracisz wszystkie alkohole");
+                Program.playerAlcohols = null;
+                Thread.Sleep(2000);
+                break;
+            case "3":
+                Console.WriteLine("Umierasz poniewaz stales jak slup na zestrzelenie");
+                Thread.Sleep(2000);
+                Environment.Exit(0);
                 break;
         }
     }
