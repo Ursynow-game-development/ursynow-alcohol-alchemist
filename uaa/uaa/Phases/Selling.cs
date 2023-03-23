@@ -11,8 +11,7 @@ public class Selling
     {
         int selectedPerson;
         
-            
-        while (true)
+        while (Program.playerAlcohols.Count > 0)
         {
             Console.Clear();
             Program.OutputStatus();
@@ -56,10 +55,6 @@ public class Selling
                 
             // Usuwanie alkoholu z listy alkoholi gracza
             Program.playerAlcohols.Remove(selectedAlcoholToPerson);
-            if (Program.playerAlcohols.Count == 0)
-            {
-                break;
-            }
         }
     }
 
@@ -88,9 +83,9 @@ public class Selling
         Console.WriteLine("Dajesz do sprobowania bimber temu komus. Na to on ci mowi:");
         Thread.Sleep(2500);
         Console.WriteLine("Ale slabe zabije cie");
-        Thread.Sleep(2500);
+        Thread.Sleep(2000);
         Console.WriteLine("Giniesz");
-        Thread.Sleep(2500);
+        Thread.Sleep(2000);
         Environment.Exit(0);
     }
 
@@ -101,9 +96,9 @@ public class Selling
         int newPrice = selectedAlcoholToPerson.Cena - priceDrop;
         Console.WriteLine("No chlopie, za to co najwyzej " + newPrice + "zl moge zaproponowac");
         Console.WriteLine("[GRA] - Przystajesz na oferte? (1 - Tak, 2 - Nie)");
-
         userAnswer = Console.ReadLine();
         Program.PlayClickSound();
+        
         if (userAnswer == "1")
         {
             Console.WriteLine("[GRA] - Zgadzasz sie na sprzedanie i dostajesz " + newPrice + "zl");

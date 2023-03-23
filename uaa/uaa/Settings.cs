@@ -8,7 +8,6 @@ public class Settings
     public static void OutputSettings()
     {
         Console.Clear();
-        Console.WriteLine("");
         Console.WriteLine("▓▓▓ USTAWIENIA - Wybierz opcje (1-3) ▓▓▓");
         Console.WriteLine("█ Dzwiek");
         Console.WriteLine("█ Dane");
@@ -36,7 +35,6 @@ public class Settings
     public static void ChangeAudioSettings()
     {
         Console.Clear();
-        Console.WriteLine("");
         Console.WriteLine("▓▓▓ Ustawienia dzwieku (1-2) ▓▓▓");
         Console.WriteLine("█ Wlacz");
         Console.WriteLine("█ Wylacz");
@@ -55,7 +53,7 @@ public class Settings
         }
         
         Console.WriteLine("Ustawienie dzwieku zmienione na " + Program.soundOn);
-        Thread.Sleep(1500);
+        Thread.Sleep(1600);
         OutputSettings();
     }
     
@@ -63,7 +61,6 @@ public class Settings
     public static void DataSettings()
     {
         Console.Clear();
-        Console.WriteLine("");
         Console.WriteLine("▓▓▓ Ustawienia danych (1-2) ▓▓▓");
         Console.WriteLine("█ Wyczysc");
         Console.WriteLine("█ Powrot");
@@ -77,6 +74,7 @@ public class Settings
                 Console.WriteLine(" CZY NA PEWNO CHCESZ WYCZYSCIC DANE? (1-TAK, 2-NIE)");
                 userAnswer = Console.ReadLine();
                 Program.PlayClickSound();
+                
                 switch (userAnswer)
                 {
                     case "1":

@@ -69,13 +69,15 @@ namespace uaa
             Thread.Sleep(1000);
             Console.Clear();
         }
-        
+
         // Wyświetla menu główne
         public static void OutputMenu()
         {
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("░░░░░░░▓ URSYNOW ALCOHOL ALCHEMIST SIMULATOR ▓░░░░░░░");
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.WriteLine("");
@@ -87,11 +89,14 @@ namespace uaa
 
             userAnswer = Console.ReadLine();
             PlayClickSound();
+            
             switch (userAnswer)
             {
-                case "2": OutputTutorial(); 
+                case "2": 
+                    OutputTutorial(); 
                     break;
-                case "3": Settings.OutputSettings();
+                case "3": 
+                    Settings.OutputSettings();
                     break;
             }
         }
@@ -135,12 +140,13 @@ namespace uaa
             }
         }
 
-        // Zapisuje dane
+        // Zapisywanie danych
         public static void WriteData()
         {
             Console.Clear();
             Console.WriteLine("[GRA] - Trwa zapisywanie danych");
             string filename = "data.txt";
+            
             using (StreamWriter writer = new StreamWriter(filename))
             {
                 writer.WriteLine(cash);
@@ -164,7 +170,7 @@ namespace uaa
             Thread.Sleep(800);
         }
 
-        // Pobiera dane
+        // Pobieranie danych
         public static void ReadData()
         {
             long length = new FileInfo("data.txt").Length;

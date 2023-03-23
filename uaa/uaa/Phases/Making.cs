@@ -14,7 +14,7 @@ public class Making
         {
             int alcoholsLength = Program.alcohols.Count;
             Program.OutputStatus();
-            Console.WriteLine("[GRA] - Pedzenie bimbru - pole wyboru (1-"+(alcoholsLength+1)+"):");
+            Console.WriteLine("[GRA] - Pedzenie bimbru - pole wyboru (1-"+(alcoholsLength+1)+")");
             OutputOptions();
 
             userAnswer = Console.ReadLine();
