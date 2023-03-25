@@ -10,7 +10,7 @@ public class Events
         Console.Clear();
         Console.WriteLine("[GRA] - Nastapilo nieoczekiwane wydarzenie");
         Thread.Sleep(2000);
-        int randomEventIndex = new Random().Next(4);
+        int randomEventIndex = new Random().Next(5);
         switch (randomEventIndex)
         {
             case 0:
@@ -24,6 +24,9 @@ public class Events
                 break;
             case 3:
                 Event_Bombilion();
+                break;
+            case 4:
+                Event_Client();
                 break;
         } 
         Thread.Sleep(3000);
@@ -40,7 +43,7 @@ public class Events
         Thread.Sleep(2000);
         Console.WriteLine("[" + randomPersonName + "] - Co to kur** jest za alkohol nie smakuje mi, zabije cie");
         Thread.Sleep(2000);
-        Console.WriteLine("Musisz szybko wybrac co  (1-3)");
+        Console.WriteLine("Musisz szybko wybrac co robic (1-3)");
         Console.WriteLine("█ Bije sie z typem");
         Console.WriteLine("█ Mowie mu aby wsadzil sobie ten alkohol wiadomo gdzie");
         Console.WriteLine("█ Proponuje znizke 10% na nastepny alkohol w ramach zadoscuczynienia");
@@ -153,6 +156,38 @@ public class Events
                 Thread.Sleep(2000);
                 Environment.Exit(0);
                 break;
+        }
+    }
+    
+    // Event 5 - Tajemniczy klient
+    public static void Event_Client()
+    {
+        Console.WriteLine("[GRA] - Podchodzi do ciebie tajemniczy klient");
+        Thread.Sleep(1500);
+        Console.WriteLine("[KLIENT] - Potrzebuje najmocniejszy alkohol jaki tylko masz - mocarza");
+        Thread.Sleep(1500);
+        
+        if (Program.playerAlcohols.Contains(new Alcohol("mocarz",2f, 2f, 11f, 38)))
+        {
+            Console.WriteLine("[GRA] - Akurat posiadasz na stanie, czy chcesz mu go dac? (1-2)");
+            Console.WriteLine("█ Tak");
+            Console.WriteLine("█ Nie");
+            userAnswer = Console.ReadLine();
+            Program.PlayClickSound();
+
+            switch (userAnswer)
+            {
+                case "1":
+                    Console.WriteLine("[KLIENT] - Dobra jednak nie chce zegnaj");
+                    break;
+                case "2":
+                    Console.WriteLine("[KLIENT] - Dobra to ide do konkurencji");
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("[GRA - Niestety nie posiadasz tego alkoholu na stanie");
         }
     }
 }

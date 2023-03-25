@@ -19,6 +19,7 @@ public class Making
 
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
+            
             if (userAnswer == (alcoholsLength + 1).ToString())
             {
                 break;
@@ -41,9 +42,9 @@ public class Making
     public static void MakeAlcoholIfPossible ()
     {
         Alcohol selectedAlcohol = Program.alcohols[Convert.ToInt32(userAnswer) - 1];
+        Console.Clear();
         if (selectedAlcohol.RequiredCukier <= Program.cukier && selectedAlcohol.RequiredZboze <= Program.zboze && selectedAlcohol.RequiredZiemniaki <= Program.ziemniaki) 
         {
-            Console.Clear();
             Program.playerAlcohols.Add(selectedAlcohol);   
             Program.cukier -= selectedAlcohol.RequiredCukier;
             Program.zboze -= selectedAlcohol.RequiredZboze;
@@ -52,7 +53,6 @@ public class Making
         } 
         else 
         {
-            Console.Clear();
             Console.WriteLine("[GRA] - Nie masz wystarczajaco skladnikow. Chcesz przyrzadzic jakis inny alkohol?");
         }
     }

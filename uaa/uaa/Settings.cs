@@ -8,11 +8,11 @@ public class Settings
     public static void OutputSettings()
     {
         Console.Clear();
-        Console.WriteLine("▓▓▓ USTAWIENIA - Wybierz opcje (1-3) ▓▓▓");
+        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Menu ustawien (1-3) ▓▓▓");
         Console.WriteLine("█ Dzwiek");
         Console.WriteLine("█ Dane");
         Console.WriteLine("█ Powrot");
-        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
 
         userAnswer = Console.ReadLine();
         Program.PlayClickSound();
@@ -35,10 +35,10 @@ public class Settings
     public static void ChangeAudioSettings()
     {
         Console.Clear();
-        Console.WriteLine("▓▓▓ Ustawienia dzwieku (1-2) ▓▓▓");
+        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Ustawienia dzwieku (1-2)  ▓▓▓");
         Console.WriteLine("█ Wlacz");
         Console.WriteLine("█ Wylacz");
-        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         
         userAnswer = Console.ReadLine();
         Program.PlayClickSound();
@@ -61,17 +61,17 @@ public class Settings
     public static void DataSettings()
     {
         Console.Clear();
-        Console.WriteLine("▓▓▓ Ustawienia danych (1-2) ▓▓▓");
+        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Ustawienia danych (1-2) ▓▓▓");
         Console.WriteLine("█ Wyczysc");
         Console.WriteLine("█ Powrot");
-        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+        Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         
         userAnswer = Console.ReadLine();
         Program.PlayClickSound();
         switch (userAnswer)
         {
             case "1":
-                Console.WriteLine(" CZY NA PEWNO CHCESZ WYCZYSCIC DANE? (1-TAK, 2-NIE)");
+                Console.WriteLine("CZY NA PEWNO CHCESZ WYCZYSCIC DANE? (1=TAK, 2=NIE)");
                 userAnswer = Console.ReadLine();
                 Program.PlayClickSound();
                 
@@ -81,7 +81,7 @@ public class Settings
                         using (var writer = new StreamWriter("data.txt", false))
                         {
                             writer.Write("");
-                            Console.WriteLine("[GRA] - Potrzebny bedzie restart gry");
+                            Console.WriteLine("[GRA] - Gra zrestartuje sie za moment");
                             Thread.Sleep(1000);
                             Environment.Exit(0);
                         }

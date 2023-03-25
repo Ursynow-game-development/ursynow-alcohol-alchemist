@@ -76,12 +76,12 @@ namespace uaa
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("░░░░░░░▓ URSYNOW ALCOHOL ALCHEMIST SIMULATOR ▓░░░░░░░");
+            Console.WriteLine("░░░░░░░░▓     URSYNOW ALCOHOL ALCHEMIST     ▓░░░░░░░░");
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.WriteLine("");
-            Console.WriteLine("Stworzone przez Nefr0l, wersja beta");
+            Console.WriteLine("Stworzone przez Nefr0l, wersja 1.0");
             Console.WriteLine("Wybierz opcje (1-3)");
             Console.WriteLine("█ Graj");
             Console.WriteLine("█ Poradnik");
@@ -136,7 +136,7 @@ namespace uaa
         {
             if (soundOn)
             {
-                Console.Beep(650, 125);
+                Console.Beep(550, 125);
             }
         }
 
@@ -191,7 +191,6 @@ namespace uaa
                         for (int j = 0; j < playerAlcoholsNumber; j++)
                         {
                             string aName = reader.ReadLine();
-                            Console.WriteLine(aName);
                             float aZiemniaki = int.Parse(reader.ReadLine());
                             float aZboze = int.Parse(reader.ReadLine());
                             float aCukier = int.Parse(reader.ReadLine());
