@@ -2,10 +2,8 @@
 
 public class Buying
 {
-    // Import zmiennych
     public static string userAnswer = Program.userAnswer;
 
-    // Pętla główna
     public static void BuyingIngredients()
     {
         while (true)
@@ -13,11 +11,12 @@ public class Buying
             Program.OutputStatus();
             Console.WriteLine("[GRA] - Nadszedl czas na uzupelnienie zapasow. Co kupujesz? (1-4)");
             OutputOptions();
-
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
             
-            if (userAnswer == "4") { break; }
+            if (userAnswer == "4") 
+                break;
+            
             Console.Clear();
             switch (userAnswer)
             {

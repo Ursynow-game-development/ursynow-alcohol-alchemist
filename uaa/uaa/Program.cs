@@ -4,7 +4,6 @@ namespace uaa
 {
     class Program
     {
-        // Zmienne
         public static string userAnswer;
         public static int cash = 25;
         public static int reputation;
@@ -16,7 +15,6 @@ namespace uaa
         public static bool soundOn = true;
         public static int playerAlcoholsNumber;
         
-        // Lista alkoholi
         public static IList<Alcohol> alcohols = new[] {
             new Alcohol("mieczak",8f, 2f, 2f, 21),
             new Alcohol("kopniak",2f, 5f, 4f, 27),
@@ -26,8 +24,7 @@ namespace uaa
             new Alcohol("mocarz",2f, 2f, 11f, 38)
         };
         
-        // Lista osób
-        public static IList<Person> person = new [] {
+        public static IList<Person> persons = new [] {
            new Person("seba",0.1f,0.23f),
            new Person("prof. gucio",0,0.45f),
            new Person("iwanbillion",0.34f,0),
@@ -35,7 +32,6 @@ namespace uaa
            new Person("mieczyslaw",0.03f,0.16f)
         };
 
-        // Pętla główna gry
         static void Main()
         {
             ReadData();
@@ -53,7 +49,6 @@ namespace uaa
             }
         }
 
-        // Wyświetla logo Ursynów Studios
         public static void OutputLogo()
         {
             Console.WriteLine("██    ██ ██████  ███████ ██    ██ ███    ██  ██████  ██     ██     ███████ ████████ ██    ██ ██████  ██  ██████  ███████ ");
@@ -70,7 +65,6 @@ namespace uaa
             Console.Clear();
         }
 
-        // Wyświetla menu główne
         public static void OutputMenu()
         {
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
@@ -101,7 +95,6 @@ namespace uaa
             }
         }
 
-        // Wyświetla status gracza
         public static void OutputStatus()
         {
             Console.WriteLine("");
@@ -111,7 +104,6 @@ namespace uaa
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         }
 
-        // Wyświetla poradnik
         public static void OutputTutorial()
         {
             Console.Clear();
@@ -131,16 +123,12 @@ namespace uaa
             OutputMenu();
         }
 
-        // Gra dźwięk UI
         public static void PlayClickSound()
         {
             if (soundOn)
-            {
                 Console.Beep(550, 125);
-            }
         }
 
-        // Zapisywanie danych
         public static void WriteData()
         {
             Console.Clear();
@@ -170,7 +158,6 @@ namespace uaa
             Thread.Sleep(800);
         }
 
-        // Pobieranie danych
         public static void ReadData()
         {
             long length = new FileInfo("data.txt").Length;

@@ -2,10 +2,8 @@
 
 public class Making
 {
-    // Import zmiennych
-    public static string userAnswer = Program.userAnswer;
-
-    // Pętla główna
+    private static string userAnswer = Program.userAnswer;
+    
     public static void MakingAlcohol()
     {
         Console.Clear();
@@ -15,34 +13,31 @@ public class Making
             int alcoholsLength = Program.alcohols.Count;
             Program.OutputStatus();
             Console.WriteLine("[GRA] - Pedzenie bimbru - pole wyboru (1-"+(alcoholsLength+1)+")");
-            OutputOptions();
+            OutputAlcoholOptions();
 
             userAnswer = Console.ReadLine();
             Program.PlayClickSound();
             
             if (userAnswer == (alcoholsLength + 1).ToString())
-            {
                 break;
-            }
+            
             MakeAlcoholIfPossible();
         }
     }
 
-    // Wyświetla dostępne opcje pędzenia bimbru
-    public static void OutputOptions()
+    public static void OutputAlcoholOptions()
     {
         foreach (Alcohol a in Program.alcohols)
-        {
             Console.WriteLine("█ " + a.Name + " (cukier - " + a.RequiredCukier + "; zboze - " + a.RequiredZboze + "; ziemniaki - " + a.RequiredZiemniaki + ")");
-        }
+        
         Console.WriteLine("█ Juz starczy pedzenia na dzis");
     }
 
-    // Sprawdza czy masz składniki po czym tworzy alkohol
     public static void MakeAlcoholIfPossible ()
     {
         Alcohol selectedAlcohol = Program.alcohols[Convert.ToInt32(userAnswer) - 1];
         Console.Clear();
+        
         if (selectedAlcohol.RequiredCukier <= Program.cukier && selectedAlcohol.RequiredZboze <= Program.zboze && selectedAlcohol.RequiredZiemniaki <= Program.ziemniaki) 
         {
             Program.playerAlcohols.Add(selectedAlcohol);   
@@ -51,9 +46,7 @@ public class Making
             Program.ziemniaki -= selectedAlcohol.RequiredZiemniaki;
             Console.WriteLine("[GRA] - Udalo ci sie wytworzyc wybrany alkohol. Robimy cos jeszcze?");
         } 
-        else 
-        {
+        else
             Console.WriteLine("[GRA] - Nie masz wystarczajaco skladnikow. Chcesz przyrzadzic jakis inny alkohol?");
-        }
     }
 }

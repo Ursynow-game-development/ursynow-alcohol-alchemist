@@ -3,8 +3,7 @@
 public class Settings
 {
     public static string userAnswer = Program.userAnswer;
-    
-    // Wyświetla ustawienia
+
     public static void OutputSettings()
     {
         Console.Clear();
@@ -31,7 +30,6 @@ public class Settings
         }
     }
 
-    // Ustawienia - dźwięk
     public static void ChangeAudioSettings()
     {
         Console.Clear();
@@ -42,6 +40,7 @@ public class Settings
         
         userAnswer = Console.ReadLine();
         Program.PlayClickSound();
+        
         switch (userAnswer)
         {
             case "1":
@@ -68,26 +67,22 @@ public class Settings
         
         userAnswer = Console.ReadLine();
         Program.PlayClickSound();
-        switch (userAnswer)
+        
+        if (userAnswer == "1") 
         {
-            case "1":
-                Console.WriteLine("CZY NA PEWNO CHCESZ WYCZYSCIC DANE? (1=TAK, 2=NIE)");
-                userAnswer = Console.ReadLine();
-                Program.PlayClickSound();
+            Console.WriteLine("CZY NA PEWNO CHCESZ WYCZYSCIC DANE? (1=TAK, 2=NIE)");
+            userAnswer = Console.ReadLine();
+            Program.PlayClickSound();
                 
-                switch (userAnswer)
+            if (userAnswer == "1") { 
+                using (var writer = new StreamWriter("data.txt", false))
                 {
-                    case "1":
-                        using (var writer = new StreamWriter("data.txt", false))
-                        {
-                            writer.Write("");
-                            Console.WriteLine("[GRA] - Gra zrestartuje sie za moment");
-                            Thread.Sleep(1000);
-                            Environment.Exit(0);
-                        }
-                        break;
+                    writer.Write("");
+                    Console.WriteLine("[GRA] - Gra zrestartuje sie za moment");
+                    Thread.Sleep(1000);
+                    Environment.Exit(0);
                 }
-                break;
+            }
         }
     }
 }

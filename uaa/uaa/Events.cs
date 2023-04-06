@@ -4,7 +4,6 @@ public class Events
 {
     public static string userAnswer = Program.userAnswer;
     
-    // Losowanie niespodziewanego wydarzenia
     public static void RandomEvent()
     {
         Console.Clear();
@@ -36,7 +35,7 @@ public class Events
     // Event 1 - złodziej
     public static void Event_Thief()
     {
-        string randomPersonName = Program.person[new Random().Next(Program.person.Count)].Name;
+        string randomPersonName = Program.persons[new Random().Next(Program.persons.Count)].Name;
         
         Thread.Sleep(2000);
         Console.WriteLine("Podchodzi do ciebie niezadowolony klient");
@@ -186,8 +185,6 @@ public class Events
             }
         }
         else
-        {
             Console.WriteLine("[GRA - Niestety nie posiadasz tego alkoholu na stanie");
-        }
     }
 }
