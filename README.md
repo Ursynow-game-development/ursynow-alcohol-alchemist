@@ -13,5 +13,3 @@ Symulator pędzenia bimbru na Ursynowie to najnowszy przełom w dziedzinie gamin
 
 ## Recenzje
 > *dzieki tej grze jestem bogaty bo nauczylem sie sprzedawac bimber* ~ elon musk
-
-> ~~*dzieki tej grze znalazlem dziewczyne* ~ fetysz~~
